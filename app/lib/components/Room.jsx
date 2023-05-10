@@ -34,52 +34,6 @@ class Room extends React.Component
 
 					<div className='state'>
 						<div className={classnames('icon', room.state)} />
-						<p className={classnames('text', room.state)}>{room.state}</p>
-					</div>
-
-					<div className='room-link-wrapper'>
-						<div className='room-link'>
-							<a
-								className='link'
-								href={room.url}
-								target='_blank'
-								rel='noopener noreferrer'
-								onClick={(event) =>
-								{
-									// If this is a 'Open in new window/tab' don't prevent
-									// click default action.
-									if (
-										event.ctrlKey || event.shiftKey || event.metaKey ||
-										// Middle click (IE > 9 and everyone else).
-										(event.button && event.button === 1)
-									)
-									{
-										return;
-									}
-
-									event.preventDefault();
-
-									clipboardCopy(room.url)
-										.then(onRoomLinkCopy);
-								}}
-							>
-								invitation link
-							</a>
-						</div>
-					</div>
-
-					<Peers />
-
-					<div
-						className={classnames('me-container', {
-							'active-speaker' : amActiveSpeaker
-						})}
-					>
-						<Me />
-					</div>
-
-					<div className='chat-input-container'>
-						<ChatInput />
 					</div>
 
 					<div className='sidebar'>
@@ -118,6 +72,16 @@ class Room extends React.Component
 							onClick={() => roomClient.restartIce()}
 						/>
 					</div>
+
+					<div
+						className={classnames('me-container', {
+							'active-speaker' : amActiveSpeaker
+						})}
+					>
+						<Me />
+					</div>
+
+					<Peers />
 
 					<Stats />
 

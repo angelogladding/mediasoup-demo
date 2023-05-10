@@ -64,7 +64,7 @@ async function run()
 
 	const urlParser = new UrlParse(window.location.href, true);
 	const peerId = randomString({ length: 8 }).toLowerCase();
-	let roomId = urlParser.query.roomId;
+	let roomId = 'lounge'; // urlParser.query.roomId;
 	let displayName =
 		urlParser.query.displayName || (cookiesManager.getUser() || {}).displayName;
 	const handlerName = urlParser.query.handlerName || urlParser.query.handler;
