@@ -81,6 +81,10 @@ class Room extends React.Component
 						<Me />
 					</div>
 
+                    <div className='chat-input-container'>
+						<ChatInput />
+					</div>
+
 					<Peers />
 
 					<Stats />
