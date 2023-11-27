@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 import classnames from 'classnames';
-import clipboardCopy from 'clipboard-copy';
 import * as appPropTypes from './appPropTypes';
 import { withRoomContext } from '../RoomContext';
 import * as requestActions from '../redux/requestActions';
@@ -22,8 +21,7 @@ class Room extends React.Component
 			roomClient,
 			room,
 			me,
-			amActiveSpeaker,
-			onRoomLinkCopy
+			amActiveSpeaker
 		}	= this.props;
 
 		return (
